@@ -1,13 +1,16 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { KotlinTabs } from "../components/Tabs";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Kotlin Homepage | JetBrains Test" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div style={{ padding: "40px", fontFamily: "sans-serif" }}>
+      <KotlinTabs />
+    </div>
+  );
 }

@@ -1,0 +1,88 @@
+.tabs-container {
+    background-color: #1b1b1b; /* Темный фон как в оригинале */
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tabs-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    border-radius: 6px;
+}
+
+.tab-button:hover {
+    color: #fff;
+    background: #333;
+}
+
+.tab-button.active {
+    color: #fff;
+    background: #4a4a4a;
+    font-weight: bold;
+}
+
+.code-block {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Настройка цветов для highlight.js внутри темной темы */
+.hljs {
+    background: transparent !important;
+    color: #d1d1d1 !important;
+}
+.section-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Текст слева, код справа */
+    gap: 48px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.section-title {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #19191c;
+}
+
+.section-description {
+    font-size: 18px;
+    color: #5f5f66;
+    margin-bottom: 32px;
+}
+
+.get-started-btn {
+    padding: 12px 24px;
+    background-color: #19191c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 900px) {
+    .section-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
