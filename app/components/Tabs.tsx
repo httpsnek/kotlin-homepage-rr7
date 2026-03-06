@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import Button from '@rescui/button';
+import { useTextStyles } from '@rescui/typography';
+import { TabList, Tab, TabSeparator } from '@rescui/tab-list';
+import cn from 'classnames';
+
 import hljs from 'highlight.js/lib/core';
 import kotlin from 'highlight.js/lib/languages/kotlin';
-import 'highlight.js/styles/github-dark.css'; // Используем темную тему для кода
+import 'highlight.js/styles/github.css';
+
 import { tabs } from './data';
 import './Tabs.css';
 
@@ -10,6 +16,7 @@ hljs.registerLanguage('kotlin', kotlin);
 const initialIndex = Math.floor(Math.random() * tabs.length);
 
 export function KotlinTabs() {
+    const textCn = useTextStyles();
     const [activeIndex, setActiveIndex] = useState(initialIndex);
 
     const highlightedCode = hljs.highlight(tabs[activeIndex].code, {
@@ -18,30 +25,31 @@ export function KotlinTabs() {
 
     return (
         <div className="section-wrapper">
-            {/* Текстовый блок (слева или сверху) */}
+            {}
             <div className="text-content">
-                <h2 className="section-title">Modern, concise and safe programming language</h2>
-                <p className="section-description">
+                <h2 className={textCn('rs-h2')}>
+                    Modern, concise and safe programming language
+                </h2>
+                <p className={cn(textCn('rs-text-2'), 'section-description')}>
                     Easy to pick up, so you can create powerful applications immediately.
                 </p>
-                <button className="get-started-btn">Get started</button>
+                <div style={{ marginTop: '32px' }}>
+                    <Button mode="outline" size="l" href="/docs/getting-started.html">
+                        Get started
+                    </Button>
+                </div>
             </div>
 
-            {/* Интерактивный блок с кодом */}
+            {}
             <div className="tabs-container">
-                <div className="tabs-header">
+                <TabList value={activeIndex} onChange={(v: number) => setActiveIndex(v)}>
                     {tabs.map((tab, i) => (
-                        <button
-                            key={i}
-                            onClick={() => setActiveIndex(i)}
-                            className={`tab-button ${activeIndex === i ? 'active' : ''}`}
-                        >
-                            {tab.title}
-                        </button>
+                        <Tab key={i}>{tab.title}</Tab>
                     ))}
-                </div>
-
-                <pre className="code-wrapper">
+                </TabList>
+                <TabSeparator />
+                
+                <pre className="code-wrapper" style={{ marginTop: '16px' }}>
                     <code
                         className="hljs language-kotlin code-block"
                         dangerouslySetInnerHTML={{ __html: highlightedCode }}

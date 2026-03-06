@@ -1,88 +1,68 @@
+.section-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); 
+    gap: 32px; 
+    align-items: start;
+}
+
+.text-content {
+    padding-top: 8px; 
+}
+
+.section-description {
+    color: #5f5f66;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
 .tabs-container {
-    background-color: #1b1b1b; /* Темный фон как в оригинале */
-    border-radius: 12px;
+    min-width: 0;
+    width: 100%;
+}
+
+.code-wrapper {
+    background-color: #f5f5f5;
+    border-radius: 0 0 8px 8px;
     padding: 24px;
-    color: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.tabs-header {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 12px;
-}
-
-.tab-button {
-    background: transparent;
-    border: none;
-    color: #888;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.2s;
-    border-radius: 6px;
-}
-
-.tab-button:hover {
-    color: #fff;
-    background: #333;
-}
-
-.tab-button.active {
-    color: #fff;
-    background: #4a4a4a;
-    font-weight: bold;
+    margin: 0;
+    width: 100%; 
+    box-sizing: border-box;
+    overflow-x: auto; 
 }
 
 .code-block {
     margin: 0;
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 24px;
 }
-
-/* Настройка цветов для highlight.js внутри темной темы */
 .hljs {
     background: transparent !important;
-    color: #d1d1d1 !important;
-}
-.section-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Текст слева, код справа */
-    gap: 48px;
-    align-items: start;
-    max-width: 1200px;
-    margin: 60px auto;
+    color: #19191c !important;
 }
 
-.section-title {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 24px;
-    color: #19191c;
+.hljs-keyword {
+    color: #19191c !important;
+    font-weight: 700 !important;
 }
 
-.section-description {
-    font-size: 18px;
-    color: #5f5f66;
-    margin-bottom: 32px;
+.hljs-title.class_, .hljs-type {
+    color: #164edb !important; 
+    font-weight: normal !important;
 }
 
-.get-started-btn {
-    padding: 12px 24px;
-    background-color: #19191c;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
+.hljs-string {
+    color: #c22a2a !important; 
 }
 
-/* Адаптивность для мобилок */
+.hljs-comment {
+    color: #8c8c92 !important;
+    font-style: italic !important;
+}
+
 @media (max-width: 900px) {
     .section-wrapper {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
